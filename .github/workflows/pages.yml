@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+  # allows manual run
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
@@ -22,7 +25,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g @marp-team/marp-cli
-      - run: marp slides/lecture.md --html -o slides/index.html
+      - run: marp slides/lecture.md --html -o slides/lecture.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

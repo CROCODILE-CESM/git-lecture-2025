@@ -3,7 +3,7 @@
 Welcome! This repo contains lecture slides and hands-on exercises for learning Git and GitHub.
 
 ## 📊 Slides
-- [View online (GitHub Pages)](https://USERNAME.github.io/git-lecture/slides/lecture.html)
+- [View online (GitHub Pages)](https://USERNAME.github.io/curly-computing-machine/slides/lecture.html)
 - [Download PDF](slides/lecture.pdf)
 
 ## 🛠️ Exercises
