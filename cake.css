@@ -1,0 +1,35 @@
+/* custom theme */
+
+@import 'default';
+
+.highlight { color: red; }
+.highlight2 { color: blue; }
+
+
+
+
+.box {
+  border: 2px solid #007acc;
+  padding: 1em;
+  border-radius: 8px;
+  background: #eef6fb;
+  margin-bottom: 1.5em; /* space below the box */
+}
+
+.box-no-border {
+  padding: 1em;
+  margin-bottom: 1.5em; /* space below the box */
+}
+
+
+.box-container {
+  display: flex;
+  justify-content: space-between;  /* spread boxes horizontally */
+}
+
+.note {
+  border-left: 5px solid #ff9800;
+  padding: 1em;
+  background: #fff3e0;
+}
+
