@@ -1,14 +1,8 @@
-# Git & GitHub Lecture
+# Git & GitHub 
 
-Welcome! This repo contains lecture slides and hands-on exercises for learning Git and GitHub.
+Welcome! This repo contains lecture slides for learning Git and GitHub.
+Presented as part of the 2025 [CROCODILE](https://www.cesm.ucar.edu/events/regional-ocean-modeling-mom6-community-earth-system-model-framework) workshop. 
 
 ## 📊 Slides
 - [View online (GitHub Pages)](https://USERNAME.github.io/curly-computing-machine/slides/index.html)
-
-## 🛠️ Exercises
-
-1. [Intro to Git](exercises/01_intro_git.md)
-2. [Branching](exercises/02_branching.md)
-3. [Collaboration](exercises/03_collaboration.md)
-4. [Pull Requests](exercises/04_pull_requests.md)
 

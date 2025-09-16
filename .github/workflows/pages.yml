@@ -25,7 +25,8 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g @marp-team/marp-cli
-      - run: marp slides/lecture.md --theme cake.css --html -o slides/index.html
+      - run: cat slides/lecture.md slides/participants.md > slides/full.md
+      - run: marp slides/full.md --theme cake.css --html -o slides/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
