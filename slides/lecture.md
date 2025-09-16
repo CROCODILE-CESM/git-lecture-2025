@@ -10,6 +10,7 @@ theme: cake
 <!-- _paginate: skip -->
 # Git & GitHub
 
+
 ### Version control with Git
 
 <!-- This is a speaker note for the first page -->
@@ -25,8 +26,6 @@ theme: cake
 * You can tag a version of code that was used with a particular paper
 * Using version control is a great skill to have as you develop code, scripts, and figures 
 *  *Anything* that you edit can benefit from version control
-
----
 
 ---
 
@@ -51,12 +50,12 @@ The Linux Foundation
 ---
 
 <!--
-From original revision of git: 
+These bullet points are from the commit message from the original revision of git: 
 -->
 
 <small>
 
-"git" can mean anything, depending on your mood.
+### "git" can mean anything, depending on your mood.
 
  * random three-letter combination that is pronounceable, and not
    actually used by any common UNIX command.  The fact that it is a
@@ -71,10 +70,6 @@ From original revision of git:
 https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
 
 </small>
-
-<!--
-[Git README](https://github.com/git/git/blob/master/README.md)
--->
 
 ---
 
@@ -98,8 +93,6 @@ https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
    </div>
 
 </div>
-
-
 
 ---
 
@@ -226,7 +219,7 @@ Add your .gitignore file to your repository.
    </div>
 
    <div class="box" style="width: 40%;" markdown="1">
-   It is useful to set up a .gitignore file when you start a project to prevent accidentally adding giant files to your repository
+   It is useful to set up a .gitignore file when you start a project to prevent accidentally adding binary files to your repository
 
    </div>
 </div>

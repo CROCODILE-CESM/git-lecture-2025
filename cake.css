@@ -2,10 +2,8 @@
 
 @import 'default';
 
-.highlight { color: red; }
-.highlight2 { color: blue; }
-
-
+.highlight { color: rgb(255, 123, 0); }
+.highlight2 { color: #20C997; }
 
 
 .box {
