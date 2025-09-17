@@ -31,7 +31,7 @@ theme: cake
 
 <div class="note" markdown="1">
 
-Roughly 15,600 developers from more than 1,400 companies have contributed to the Linux kernel since 2005, when the adoption of Git made detailed tracking possible
+Roughly <span class="highlight">15,600</span> developers from more than <span class="highlight">1,400</span> companies have contributed to the Linux kernel since 2005, when the adoption of Git made detailed tracking possible
 The Linux Foundation
 
 </div>
@@ -105,13 +105,17 @@ https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
 
 # Git concepts
 
-working with git follows this pattern:
+<div data-marpit-fragment markdown="1">
+
+Working with git follows this pattern:
 
 Edit / add / commit
 
-- Edit your files with your new amazing science (this bit is up to you).
-- git add - add a change to the staging area.
-- git commit - take a snapshot of the project
+<div>
+
+* Edit your files with your new amazing science (this bit is up to you).
+* git add - add a change to the staging area.
+* git commit - take a snapshot of the project
 
 <div data-marpit-fragment markdown="1">
 
@@ -142,8 +146,9 @@ pull / push
 
 Let’s set up your git environment
 we’ll set up
-- the name and email you want to use with git 
-- the editor you want to use for writing git commit messages
+
+* the name and email you want to use with git 
+* the editor you want to use for writing git commit messages
 
 ---
 
@@ -157,14 +162,20 @@ git config --global user.name “Margaret Hamilton”
 git config --global user.email mhamilton@nasa.gov
 ```
 
+<div class="note" data-marpit-fragment markdown="1">
+
+**Be aware:** if you do not want your email to be public on GitHub, set this email to your GitHub-provided [noreply](https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) email address. 
+
+<div>
+
 ---
 
 # Setting up your git environment
 
-Set the editor you want to use for commit messages, vim, nano, emacs, notepad++, whatever your favorite editor is.
+Set the editor you want to use for commit messages, vim, nano, emacs, notepad++, vscode,
+whatever your favorite editor is.
 
 In this example, I am setting my editor for commit messages to vim. 
-
 
 `git config --global core.editor vim`
 
@@ -179,65 +190,135 @@ To display what your git settings are use:
 
 `git config --list`
 
+
+
+# Files every repo 'should' have
+
+<div class="box-container">
+
+<div class="box-no-border">
+
+* README.md
+* .gitignore
+* LICENSE
+
+</div>
+
+---
+
+# README.md
+
+
+README.md is the "front page" of your repo on GitHub
+
+
+<div class="task" data-marpit-fragment markdown markdown="1">
+
+For extra credit:
+- find a README.md on GitHub you think is great, find a README.md
+- that you think is not-so-great
+
+</div>
+
+---
+
+# Example .gitignore file
+
+<div class="box-container">
+   <div class="box" style="width: 40%;" markdown="1">
+
+   ```
+   # files for git to ignore
+   *.log 
+   *.o
+   *.mod 
+   *.pyc
+   cool_program
+   ```
+
+   </div>
+
+   <div class="box-no-border" style="width: 40%;" data-marpit-fragment markdown="1">
+
+   It is useful to set up a .gitignore file when you start a project to prevent _accidentally_ adding binary files to your repository
+
+   </div>
+</div>
+
+<div data-marpit-fragment markdown="1">
+
+This .gitignore file means that in this repository, any files that end in .log, .o, .mod or .pyc or called cool_program will not be tracked. This makes life easier because you can add whole directories without worrying about adding files you don’t want to track. 
+
+</div>
+
+---
+
+# License choice
+
+<div class="note">
+Choice of license is out-of-scope for this talk, but checkout these resources:
+
+- [opensouce.guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project)
+- GitHub's [choosealicense.com](https://choosealicense.com/)
+
+</div>
+
+
 ---
 
 # Exercise 1: create a repository
+
+
+<div data-marpit-fragment markdown markdown="1">
 
 ```
 mkdir my-first-repo   
 cd my-first-repo      
 ```
+</div>
 
-Create a .gitignore file to tell git which files to ignore.  
-See the next slide for an example .gitignore file
+<div data-marpit-fragment markdown markdown="1">
 
+Create your repository with:
 `git init`
 
-Check the status of your repository:
+</div>
 
+<div data-marpit-fragment markdown markdown="1">
+
+Creates a hidden directory (.git) which contains all of the internal data:
+commits, branches, tags, configuration, and the object database.
+
+</div>
+  
+<div data-marpit-fragment markdown markdown="1">
+
+The files and directories you see outside of .git/ (your source code, docs, etc.)
+are your working tree.
+
+</div>
+
+---
+
+
+Check the status of your repository:
 `git status`
 
-Add your .gitignore file to your repository. 
+---
 
+Create a .gitignore file.
+Add your .gitignore file to your repository. 
 `git add .gitignore`
 
----
+Check the status of your repository:
+`git status`
 
-# Example. gitignore file
-
-<div class="box-container">
-   <div class="box" style="width: 40%;" markdown="1">
-
-```
-# files for git to ignore. 
-*.log 
-*.o
-*.mod 
-*.pyc
-```
-
-   </div>
-
-   <div class="box" style="width: 40%;" markdown="1">
-   It is useful to set up a .gitignore file when you start a project to prevent accidentally adding binary files to your repository
-
-   </div>
-</div>
-
-<div class="fragment" markdown="1">
-
-This .gitignore file means that in this repository, any files that end in .log, .o, .mod or .pyc will not be tracked.   This makes life easier because you can add whole directories without worrying about adding files you don’t want to track, 
-`git add .`
-
-</div>
 
 ---
 
-<div class="note" markdown="1">
+Commit your added file
 
-⚠️ **Important:** This content is highlighted in a box.
-
-</div>
+git commit -m "initial commit"
 
 ---
 
@@ -247,6 +328,8 @@ one line short summary of the change
 
 more detail if needed on why you changed what
 
+<div data-marpit-fragment markdown markdown="1">
+
 ```
 Place ring in Mount Doom
 
@@ -254,6 +337,8 @@ Ring is destroyed, Sauron loses his power forever. All he created collapses,
 the Nazgûl perish, and his armies are thrown into such disarray that 
 Aragorn's forces emerge victorious.
 ```
+</div>
+
 ---
 
 # Viewing the status of your repository
@@ -331,9 +416,7 @@ Fork vs. Clone
 
 # Exercise 3: Fork a repository on GitHub
 
-Pick a repository on github and create your own fork of that repository
-
-
+Fork this repository on GitHub. 
 
 
 ---

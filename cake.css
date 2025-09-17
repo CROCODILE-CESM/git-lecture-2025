@@ -4,6 +4,7 @@
 
 .highlight { color: rgb(255, 123, 0); }
 .highlight2 { color: #20C997; }
+.strong { color: rgb(255, 123, 0); }
 
 
 .box {
@@ -11,18 +12,19 @@
   padding: 1em;
   border-radius: 8px;
   background: #eef6fb;
-  margin-bottom: 1.5em; /* space below the box */
+  flex: 0 0 calc(50% - 0.75em);  /* 2 boxes per row, accounting for gap */
+  box-sizing: border-box;          /* include padding/border in width */
 }
 
 .box-no-border {
   padding: 1em;
-  margin-bottom: 1.5em; /* space below the box */
 }
-
 
 .box-container {
   display: flex;
-  justify-content: space-between;  /* spread boxes horizontally */
+  flex-wrap: wrap;           /* allow boxes to go to next row */
+  gap: 1.5em;                /* space between boxes horizontally and vertically */
+  justify-content: space-between; 
 }
 
 .note {
@@ -31,3 +33,8 @@
   background: #fff3e0;
 }
 
+.task {
+  border-left: 5px solid #20C997;
+  padding: 1em;
+  background: #eaf5f2;
+}
