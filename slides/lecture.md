@@ -418,6 +418,7 @@ Fork vs. Clone
 
 Fork this repository on GitHub. 
 
+https://github.com/CROCODILE-CESM/git-lecture-2025.git
 
 ---
 
