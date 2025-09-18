@@ -396,6 +396,10 @@ discarding changes:
 * The default remote is called **origin**.
 
 ---
+
+![bg contain](Contributors.svg)
+
+---
 <!-- footer: "" -->
 # Working with remote repositories
 
@@ -403,7 +407,9 @@ discarding changes:
 
 <div data-marpit-fragment markdown="1">
 
-**Cloning** is copying a repository.  For example, to run someone else’s code you can clone their repository.  `git clone repository-address` downloads the code to your machine.  You can use git locally, but if you want to push your changes to GitHub you will need permission to write to the repository on github.
+**Cloning** is the initial download of remote repository to your machine.
+
+ `git clone repository-address` downloads the code to your machine.  You can use git locally, but if you want to push your changes to GitHub you will need permission to write to the repository on github.
 
 </div>
 
