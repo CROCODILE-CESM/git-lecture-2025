@@ -7,6 +7,10 @@ theme: cake
 #footer: goodbye
 ---
 
+<!-- To build locally: 
+cd slides
+cat lecture.md participants.md > full.md; npx @marp-team/marp-cli@latest full.md --html --theme ../cake.css >
+
 <!-- _paginate: skip -->
 # Git & GitHub
 
