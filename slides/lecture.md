@@ -11,7 +11,7 @@ theme: cake
 # Git & GitHub
 
 
-### Version control with Git
+### Version control and collaborative workflows
 
 <!-- This is a speaker note for the first page -->
 
@@ -31,7 +31,7 @@ theme: cake
 
 <div class="note" markdown="1">
 
-Roughly <span class="highlight">15,600</span> developers from more than <span class="highlight">1,400</span> companies have contributed to the Linux kernel since 2005, when the adoption of Git made detailed tracking possible
+Roughly **15,600** developers from more than **1,400** companies have contributed to the Linux kernel since 2005, when the adoption of Git made detailed tracking possible.
 The Linux Foundation
 
 </div>
@@ -40,12 +40,13 @@ The Linux Foundation
 # Goals
 
 - Understand Git basics
-- Learn GitHub workflows  
+- Learn about GitHub workflows  
 - Practice branching, merging, and pull requests  
+  * And creating and fixing *conflicts*
 
 ---
 
-#  What is Git?
+# What is Git?
 
 ---
 
@@ -81,14 +82,14 @@ https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
    <div class="box" style="width: 40%;" markdown="1">
 
 - Version control system  
-- Tracks <span class="highlight">changes</span> in files  
+- Tracks **changes** in files  
 - Supports collaboration  
 
    </div>
 
    <div class="box-no-border" style="width: 40%;" markdown="1" data-marpit-fragment markdown>
 
-    The <span class="highlight">commit</span> is the unit of change
+    The **commit** is the unit of change
 
    </div>
 
@@ -125,7 +126,7 @@ The **commit** is what is saved in your git repository
 
 ---
 
-## GitHub
+# GitHub
 
 Github is a place to store your git repositories online, with some social media aspects. 
 There are other services you can use, for example <span class="highlight">Bitbucket</span> and 
@@ -145,10 +146,15 @@ pull / push
 # Getting started
 
 Let’s set up your git environment
-we’ll set up
 
-* the name and email you want to use with git 
-* the editor you want to use for writing git commit messages
+<div data-marpit-fragment markdown="1">
+
+We’ll set up:
+
+</div>
+
+* The name and email you want to use with git 
+* The editor you want to use for writing git commit messages
 
 ---
 
@@ -179,8 +185,12 @@ In this example, I am setting my editor for commit messages to vim.
 
 `git config --global core.editor vim`
 
+<div class="note" data-marpit-fragment markdown="1">
+
 Note this doesn’t mean you have to edit all code with vim. 
 This just means git will open vim when it wants you to write a commit message
+
+</div>
 
 ---
 
@@ -190,7 +200,7 @@ To display what your git settings are use:
 
 `git config --list`
 
-
+---
 
 # Files every repo 'should' have
 
@@ -247,7 +257,7 @@ For extra credit:
 
 <div data-marpit-fragment markdown="1">
 
-This .gitignore file means that in this repository, any files that end in .log, .o, .mod or .pyc or called cool_program will not be tracked. This makes life easier because you can add whole directories without worrying about adding files you don’t want to track. 
+This .gitignore file means that in this repository, any files that end in _.log_, _.o_, _.mod_, or _.pyc_ or called _cool_program_ will not be tracked. This makes life easier because you can add whole directories without worrying about adding files you don’t want to track.
 
 </div>
 
@@ -265,9 +275,8 @@ Choice of license is out-of-scope for this talk, but checkout these resources:
 
 
 ---
-
+<!-- footer: Exercise 1 -->
 # Exercise 1: create a repository
-
 
 <div data-marpit-fragment markdown markdown="1">
 
@@ -286,7 +295,7 @@ Create your repository with:
 
 <div data-marpit-fragment markdown markdown="1">
 
-Creates a hidden directory (.git) which contains all of the internal data:
+Creates a _hidden_ directory (_.git_) which contains all of the internal data:
 commits, branches, tags, configuration, and the object database.
 
 </div>
@@ -294,7 +303,7 @@ commits, branches, tags, configuration, and the object database.
 <div data-marpit-fragment markdown markdown="1">
 
 The files and directories you see outside of .git/ (your source code, docs, etc.)
-are your working tree.
+are your **working tree**.
 
 </div>
 
@@ -318,15 +327,23 @@ Check the status of your repository:
 
 Commit your added file
 
-git commit -m "initial commit"
+`git commit -m "initial commit"`
+
+-m means message 
+
+Take a look at the log
+
+`git log`
+`git log --oneline`
+
 
 ---
-
+<!-- footer: "" -->
 # Writing good commit messages
 
-one line short summary of the change
+One line short summary of the change
 
-more detail if needed on why you changed what
+More detail if needed on why you changed what
 
 <div data-marpit-fragment markdown markdown="1">
 
@@ -343,7 +360,9 @@ Aragorn's forces emerge victorious.
 
 # Viewing the status of your repository
 
-To see which files have been edited, which have been added to the staging area and any files that are not being tracked by git, use git status
+To see which files have been edited, which have been added to the staging area, and any files that are not being tracked by git, use 
+
+`git status`
 
 ---
 
@@ -361,116 +380,232 @@ For example:
 
 # Undoing changes
 
-Undoing an add - use this if you accidentally added some changes you don’t want to commit
-git reset HEAD filename
-This won’t undo your changes to the file, it only takes the changes out of the ‘to be committed’ area. 
-
-To undo (discard) your changes to a file
-git checkout -- filename
-
-Note: Changes that are not committed are lost
-
-
----
 
 The output from `git status` gives the instructions for unstaging and 
 discarding changes:
 
+---
+# Working with remote repositories
 
+* A **remote** is a version of your repository that is hosted on the internet or network somewhere.  
+* You can have multiple remotes for a repository.
+* The default remote is called **origin**.
+
+---
+<!-- footer: "" -->
+# Working with remote repositories
+
+**Fork** vs. _Clone_
+
+<div data-marpit-fragment markdown="1">
+
+**Cloning** is copying a repository.  For example, to run someone else’s code you can clone their repository.  `git clone repository-address` downloads the code to your machine.  You can use git locally, but if you want to push your changes to GitHub you will need permission to write to the repository on github.
+
+</div>
+
+<div data-marpit-fragment markdown="1" >
+
+Multiple people can work on the same repository if they have **permission to write** to the repository on GitHub.
+
+</div>
+
+<div data-marpit-fragment>
+
+_Forking_ is creating your own version of the code on GitHub.  You can now change the code and push those commits to GitHub.
+You make a _pull request_ to suggest your changes be merged into the original repository.
+
+---
+# Famous Forks
+
+The CROCODILE version of MOM6:
+
+https://github.com/CROCODILE-CESM/MOM6
+
+is a fork of the NCAR MOM6 repository:
+
+https://github.com/NCAR/MOM6
+
+which is a fork of the original MOM6 repository:
+
+https://github.com/mom-ocean/MOM6
 
 ---
 
+<!-- _footer: https://github.com/mom-ocean/MOM6/network/members -->
+
+<img src="slides/mom6-forks.png" style="width:80vw; height:60vh; object-fit:contain; display:block; margin:0em auto 0 auto;">
+
+---
+
+<!-- _footer: https://ossinsight.io/analyze/mom-ocean/MOM6#people -->
+
+<img src="slides/mom6-insights.png" style="width:80vw; height:60vh; object-fit:contain; display:block; margin:4em auto 0 auto;">
+
+---
+<!-- footer: Exercise 2 -->
 # Exercise 2: Clone a repository from GitHub
 
-Explore a repository on Github, here are a couple of examples 
+Explore a repository on GitHub, here are a couple of examples 
 
 https://github.com/hkershaw-brown/poems
 https://github.com/ESCOMP/CESM
 
 Have a look at the commits and the contributors. 
 
-Clone - download a copy of the repository to your machine
-git clone https://github.com/hkershaw-brown/poems.git
-
-Checkout an earlier version of the repository git checkout #hash
-
 ---
 
-# Exercise 3: Fork a repository on GitHub
+Clone the repository to your machine
 
-Fork vs. Clone
+`git clone https://github.com/hkershaw-brown/poems.git`
 
-<div data-marpit-fragment markdown="1">
+Checkout an earlier version of the repository `git checkout #hash`
 
-**Cloning** is copying a repository.  For example, to run someone else’s code you can clone their repository.  git clone repository-address downloads the code to your machine.  You can use git locally, but if you want to push your changes to github you will need permission to write to the repository on github.
+Checkout a branch
 
-</div>
+<div class="task" data-marpit-fragment markdown markdown="1">
 
-<div data-marpit-fragment>
-
-**Forking** is creating your own version of the code on github.  You can now change the code and push those commits to github.  
+What is the difference between a **commit** and a _branch_?
 
 </div>
 
 ---
-
-# Exercise 3: Fork a repository on GitHub
-
-Fork this repository on GitHub. 
-
-https://github.com/CROCODILE-CESM/git-lecture-2025.git
-
----
+<!-- footer: "" -->
 
 # Working with remote repositories
 
-To list the remote for the repository
-git remote show origin
+To see all the remote repositories:
 
-To get changes from the remote repository
-git pull 
+`git remote -v`
 
+To see the remote for the origin repository 
+`git remote show origin`
+
+To get changes from the remote repository and apply them to your branch
+`git pull`
+
+<div class="task" markdown="1">
+  
+  What is the difference between `git fetch` and `git pull`?
+
+</div>
+
+---
 # Working with remote repositories
 
 Storing local changes while you pull from a remote repository
 Sometimes the changes you pull from a remote repository will conflict with your local changes. You can stash your local changes, pull the new changes from the remote repository, then pop your changes back.
+
+```
 git stash
 git pull
 git stash pop
-
+```
 ---
 
 # Working with remote repositories
 
 Here is an example message when pulling changes conflicts with your local changes
 
+---
+
+<!-- footer: Exercise 3 -->
+# Exercise 3: Make a pull request
+
+Fork the [CROCODILE-CESM/git-lecture-2025](https://github.com/CROCODILE-CESM/git-lecture-2025) repository on GitHub.
+
+Clone your forked repository to your machine.
+
+`git clone https://github.com/YOUR_USERNAME/git-lecture-2025.git`
+
+Create a new branch for your changes.
+
+```
+cd git-lecture-2025
+git checkout -b participant-USERNAME
+```
+
+<div class="note" data-marpit-fragment markdown markdown="1">
+
+Replace **USERNAME** with your GitHub username
+
+</div>
 
 ---
 
-# Exercise 4: Putting your repository on Github
+### Make things <span style="color:rgb(255, 123, 0)">better</span>!
+
+Make a **change** to the code
+
+- Add your name to the participants.md file in the repository.
+- Fix any typos in lecture.md
+
+Add and **commit** your changes.
+
+---
+
+Submit a pull request to the [CROCODILE-CESM/git-lecture-2025](https://github.com/CROCODILE-CESM/git-lecture-2025).
+
+<div class="task" markdown="1">
+
+- Add your name to the participants.md file in the repository.
+- Fix any typos in lecture.md
+
+</div>
+
+<p>
+
+<div class="note" data-marpit-fragment markdown markdown="1">
+
+The slides will be updated during the workshop.
+
+</div>
+
+---
+<!-- footer: Homework -->
+# Homework: Putting your repository on Github
 
 You can use the repository from Exercise 1 or use your own code if you have some. For your own code, think about whether you want the repository to be public or private. You can share private repositories with other people if you choose. Public repositories are visible to the world.
 
 
+<div class="task" data-marpit-fragment markdown markdown="1">
 Extra credit fun with a friend:
 Partner up with someone and invite them to be a collaborator on your repository.  What happens when you both make changes to the same file.  What happens when you try and push these changes to the repository.  Can you sort out any conflicts?
-
-
+</div>
 
 ---
-
+<!-- footer: "" -->
 # Next steps
 
-Once you are comfortable with git and tracking changes through time, you may want to do some of the following: 
+Once you are comfortable with git and *tracking changes* through time, you may want to do some of the following: 
 
 - Use branches to work on new features
 - Use tags to identify versions of your code
-- Make DOIs for your code on github for you published papers
+- Make DOIs for your code on GitHub for your published papers
 - Think about what license you should choose for your code
-- Submit pull requests to contribute to other projects 
-- Use github issues for your code todo lists
+- Submit *pull requests* to contribute to other projects
+- Use GitHub issues for your code todo lists
 - Find your favorite tools for working with Git
-- Share your wisdom with your labmates
+- Share your *wisdom* with your labmates
+
+---
+<!-- footer: "" -->
+# Homework: Think about the workflow you want to use
+
+Think about how you want to use git and GitHub in your own work.  Here are some questions to consider:
+
+* How many people work on your code?
+* Is issue tracking useful for you?
+* Do you want to use branches for new features? Or just work on the main branch?
+* Do you want to use pull requests for code review?
+* What would you put in a contributors guide?
+
+<div class="note" data-marpit-fragment markdown markdown="1">
+
+Atlassian has a good guide to [choosing a workflow](https://www.atlassian.com/git/tutorials/comparing-workflows).
+GitHub has a guide to [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+
+</div>
+
 
 ---
 
