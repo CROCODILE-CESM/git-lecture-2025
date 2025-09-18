@@ -433,13 +433,13 @@ https://github.com/mom-ocean/MOM6
 
 <!-- _footer: https://github.com/mom-ocean/MOM6/network/members -->
 
-<img src="slides/mom6-forks.png" style="width:80vw; height:60vh; object-fit:contain; display:block; margin:0em auto 0 auto;">
+![bg contain](mom6-forks.png)
 
 ---
 
 <!-- _footer: https://ossinsight.io/analyze/mom-ocean/MOM6#people -->
 
-<img src="slides/mom6-insights.png" style="width:80vw; height:60vh; object-fit:contain; display:block; margin:4em auto 0 auto;">
+![bg contain](mom6-insights.png)
 
 ---
 <!-- footer: Exercise 2 -->
