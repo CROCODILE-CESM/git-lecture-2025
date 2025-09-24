@@ -397,25 +397,73 @@ To see which files have been edited, which have been added to the staging area, 
 
 ---
 
-# Undoing changes
+![](status-no-add.png)
 
-Checkout an earlier version of a file
+---
 
-`git checkout hash filename`
+![](status-add.png)
 
-For example:
+---
 
-`git checkout 73eba0ddb Money`
+# Viewing the history of your repository
+
+`git log`
+`git log --oneline`
+
+---
+
+![](git-log.png)
+
+---
+
+![](git-log-oneline.png)
 
 ---
 
 # Undoing changes
 
+<div data-marpit-fragment markdown="1">
+
+There many ways to undo changes in git.
+
+</div>
+
+<div class="note" data-marpit-fragment markdown="1">
+
+Good to practice undoing changes, before you have to do a **danger** undo in real life!
+
+</div>
+
+---
+
+# Undoing changes
 
 The output from `git status` gives the instructions for unstaging and 
 discarding changes:
 
+![](status-add.png)
+
 ---
+# Undoing changes
+
+Checkout an earlier version of a file
+
+git checkout **commit id** -- *filename*
+
+For example:
+
+`git checkout 941417d -- lecture.md`
+
+<div class="note" data-marpit-fragment markdown="1">
+
+Replace **commit id** with the first few characters of the commit you want to checkout, 
+and *filename* with the name of the file you want to checkout.
+
+</div>
+
+---
+
+
 # Working with remote repositories
 
 * A **remote** is a version of your repository that is hosted on the internet or network somewhere.  
