@@ -101,6 +101,10 @@ https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
 
 ---
 
+[![Commit](commit.png)](https://github.com/ESCOMP/CESM/commit/9b909ecb9831c450365a0d79f32968e76466a713)
+
+---
+
 # Git concepts
 
 * **Repository** - a place to store all the changes to your project over time
@@ -108,6 +112,13 @@ https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
 
 ---
 
+# .git directory
+
+The .git directory is where Git stores all the metadata and object database for your *repository*. It contains the entire history of changes.
+
+![drop-shadow width:400px](dotgit.svg)
+
+---
 # Git concepts
 
 <div data-marpit-fragment markdown="1">
@@ -133,8 +144,8 @@ The **commit** is what is saved in your git repository
 # GitHub
 
 Github is a place to store your git repositories online, with some social media aspects. 
-There are other services you can use, for example <span class="highlight">Bitbucket</span> and 
-<span class="highlight2">GitLab</span>.
+There are other services you can use, for example **Bitbucket** and 
+*GitLab*.
 
 ---
 
@@ -142,8 +153,15 @@ There are other services you can use, for example <span class="highlight">Bitbuc
 
 pull / push
 
-  git pull -  get the latest updates from a remote repository
-  git push - push your changes to the remote repository
+git pull -  get the latest updates from a remote repository
+git push - push your changes to the remote repository
+
+---
+
+# Git concepts
+
+
+![drop-shadow width:300px](GitHub.svg)
 
 ---
 
@@ -229,8 +247,8 @@ README.md is the "front page" of your repo on GitHub
 <div class="task" data-marpit-fragment markdown markdown="1">
 
 For extra credit:
-- find a README.md on GitHub you think is great, find a README.md
-- that you think is not-so-great
+- find a README.md on GitHub you think is _great_
+- find a README.md that you think is _not-so-great_
 
 </div>
 
@@ -265,6 +283,15 @@ This .gitignore file means that in this repository, any files that end in _.log_
 
 </div>
 
+---
+
+# What files might you not want to track?
+
+* Compiled source code (e.g. .o, .pyc)
+* Log files (e.g. .log)
+* Temporary files (e.g. *~)
+* Sensitive information (e.g. passwords, API keys)
+* Large files (e.g. datasets, binaries)
 ---
 
 # License choice
