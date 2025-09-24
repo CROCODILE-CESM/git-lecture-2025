@@ -461,9 +461,55 @@ and *filename* with the name of the file you want to checkout.
 
 </div>
 
+<div  data-marpit-fragment markdown="1">
+
+This will replace the current version of the file with the version from **commit id**.
+You'll need to commit the change if you want to keep it.
+
+</div>
+
 ---
 
+# Undoing changes
 
+`git reset 941417d` Rewrite history ("pretend this commit 941417d never happened").
+
+`git revert 941417d` Add history ("acknowledge 941417d happened, but undo it").
+
+---
+
+# Undoing changes
+
+<div class="box-container">
+   <div class="box" style="border: 2px solid red; width: 20%;" markdown="1">
+
+   <span style="color: red;">Reset</span>
+
+   * Rewrites history.
+
+   * Use case: Cleaning up your own local history before sharing it.
+
+   * ⚠️ Danger: If you’ve already pushed the commits, using reset will break history for others.
+
+   </div>
+
+   <div class="box" style="width: 40%;" data-marpit-fragment markdown="1">
+
+   ## Revert
+
+   * Create a new commit that undoes the changes from an old commit.
+
+   * Keeps history intact (safe when sharing with others).
+
+   * Use case: "We regret this commit, let’s undo its effects but still record what happened."
+
+   </div>
+</div>
+
+
+
+
+---
 # Working with remote repositories
 
 * A **remote** is a version of your repository that is hosted on the internet or network somewhere.  
@@ -472,7 +518,11 @@ and *filename* with the name of the file you want to checkout.
 
 ---
 
-![bg contain](Contributors.svg)
+![drop-shadow](multiple-remotes.svg)
+
+---
+
+![drop-shadow](pull-request.svg)
 
 ---
 <!-- footer: "" -->
@@ -532,7 +582,7 @@ https://github.com/mom-ocean/MOM6
 
 Explore a repository on GitHub, here are a couple of examples 
 
-https://github.com/hkershaw-brown/poems
+https://github.com/hkershaw-brown/little-repo
 https://github.com/ESCOMP/CESM
 
 Have a look at the commits and the contributors. 
@@ -541,11 +591,14 @@ Have a look at the commits and the contributors.
 
 Clone the repository to your machine
 
-`git clone https://github.com/hkershaw-brown/poems.git`
+`git clone https://github.com/hkershaw-brown/little-repo.git`
 
-Checkout an earlier version of the repository `git checkout #hash`
+`cd little-repo`
+
+Checkout an earlier version of the repository `git checkout 4f8e8149b5310b96e1275392e4132c8cdb23cd0a`
 
 Checkout a branch
+`git checkout main`
 
 <div class="task" data-marpit-fragment markdown markdown="1">
 
@@ -577,8 +630,13 @@ To get changes from the remote repository and apply them to your branch
 ---
 # Working with remote repositories
 
-Storing local changes while you pull from a remote repository
-Sometimes the changes you pull from a remote repository will conflict with your local changes. You can stash your local changes, pull the new changes from the remote repository, then pop your changes back.
+Stash is a way to save your local uncommitted changes without committing them.  You can then apply these changes later.
+
+git stash → set your changes aside
+
+git pull → update from remote
+
+git stash pop → bring your changes back
 
 ```
 git stash
@@ -589,10 +647,138 @@ git stash pop
 
 # Working with remote repositories
 
-Here is an example message when pulling changes conflicts with your local changes
+Sometimes you will have committed changes that *diverge* from the changes in the remote repository. You will need to merge these changes.
 
 ---
 
+Here is an example message when pulling changes conflicts with your local changes
+
+![](divergent.png)
+
+---
+
+# Pulling changes when there is divergence
+
+Merge → keep both histories, make a merge commit.
+
+Rebase → replay your local commits on top of the remote branch, so history looks linear.
+
+Fast-forward only → only allow pulls if no divergence exists (your branch can be simply moved forward).
+
+<div class="note" data-marpit-fragment markdown="1">
+Can set your preference globally or give the preference on the command line for a single pull.
+
+`git pull --no-rebase`
+
+
+</div>
+
+---
+
+![](conflict.png)
+
+---
+
+![](status-conflict.png)
+
+---
+
+Take a look at the file with the conflict, you'll see something like this:
+
+![](chevrons.png)
+
+There may be several sections of conflict in the file.
+
+```
+<<<<<< HEAD
+...
+=======
+...
+>>>>>>> branch-name or commit id
+```
+
+---
+
+![](edit-to-fix.png)
+
+<div data-marpit-fragment markdown="1">
+
+```
+git add filename
+git commit
+```
+
+</div>
+
+---
+
+# Pulling vs merging
+
+Pulling changes from a remote repository is a *combination* of two commands:
+
+`git fetch` followed by `git merge`
+
+* git fetch gets the latest changes from the remote repository
+* git merge merges those changes into your current branch
+
+<div class="note" data-marpit-fragment markdown="1">
+The same concepts (merge, rebase) apply when you are merging branches.
+</div>
+
+---
+
+# Merging branches
+
+A common workflow is to create a feature branch to work on a new feature, and then once the feature is finished, merge the changes back into the main branch.
+
+  ```
+  git checkout main
+  git merge feature-branch
+  ```
+<div data-marpit-fragment markdown="1">
+
+Or main maybe changing and you want to get the latest changes from main into your feature branch.  
+
+  ```
+  git checkout feature-branch
+  git merge main
+  ```
+
+</div>
+
+<div class="note" data-marpit-fragment markdown="1">
+
+Would rebase be better for your workflow?
+
+</div>
+
+---
+
+
+![bg contain](pull-request.svg)
+
+---
+
+![bg contain](Contributors.svg)
+
+---
+
+# Open source 
+
+Get involved!
+
+- Issue creators
+- Code reviewers
+- Pull request authors
+- Star gazers
+
+---
+
+![bg contain](dart-pulls.png)
+
+
+<!-- footer: https://ossinsight.io/analyze/NCAR/DART#people -->
+---
 <!-- footer: Exercise 3 -->
 # Exercise 3: Make a pull request
 
@@ -697,3 +883,7 @@ GitHub has a guide to [GitHub flow](https://docs.github.com/en/get-started/quick
 
 # Have Questions? Need Help?
 
+hkershaw@ucar.edu
+Crocodile slack
+
+---
